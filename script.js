@@ -22,7 +22,13 @@ async function loadList() {
 
 loadList().then((data) => {
   displayList(data.stocksStatsData[0]);
+  triggerEvent(); //show microsoft stock for default
 });
+
+function triggerEvent() //show microsoft details for default
+{
+  document.getElementById(stocks[1]).dispatchEvent(new Event("click"));
+}
 
 function displayList(stocksStatsData) {
   delete stocksStatsData._id;
@@ -34,6 +40,7 @@ function displayList(stocksStatsData) {
     const stockName = document.createElement("button");
     stockName.textContent = stock;
     stockName.className = "stock-name";
+    stockName.id = stock; ////
     const bookValue = document.createElement("span");
     bookValue.textContent = `$${stocksStatsData[stock].bookValue.toFixed(2)}`;
     bookValue.className = "book-value";
@@ -103,6 +110,7 @@ function generateCoordinatesWithTimestamp(data) {
 }
 
 function plotGraph(xAxisData, yAxisData) {
+  console.log(xAxisData, yAxisData);
   var trace1 = {
     x: xAxisData,
     y: yAxisData,
@@ -120,9 +128,9 @@ function plotGraph(xAxisData, yAxisData) {
     },
     yaxis: {
       title: "Y Axis Label",
-    },
+    }
   };
-  Plotly.newPlot("myPlot", data, layout);
+  Plotly.newPlot("myPlot", data, layout,{responsize:true});
 }
 
 document.getElementById("one-month").addEventListener("click", () => {
@@ -140,3 +148,4 @@ document.getElementById("one-year").addEventListener("click", () => {
 document.getElementById("five-year").addEventListener("click", () => {
   fetchStockData(currentStock, "5y");
 });
+
