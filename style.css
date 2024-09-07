@@ -1,0 +1,113 @@
+html 
+{
+    color:white;
+    box-sizing: border-box;
+    background-color: #000714;
+}
+
+.heading
+{
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin: 2rem;
+}
+
+
+#mid
+{
+    margin:auto;
+    width: 95%;
+    height: 70vh;
+    display: flex;
+    justify-content: space-evenly;
+}
+#chart
+{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+}
+#stock-list
+{
+    width: 35%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.stock-item
+{
+    display: flex;
+    justify-content: flex-start;
+    gap:1rem;
+}
+.stock-name 
+{
+    font-size:1rem;
+    font-weight: 900;
+    width: 6rem;
+    height:2rem;
+    border-radius: 5px;
+}
+.book-value, .profit
+{
+    font-size:1.3rem;
+    font-weight: 800;
+}
+.upper
+{
+    display: flex;
+    justify-content: center;
+    gap:2rem;
+}
+#details
+{
+    width: 100%;
+}
+#uname, #uprofit, #ubook-value
+{
+    font-size: 1.8rem;
+    font-weight: 900;
+}
+
+.lower
+{
+    margin-top: 1rem;
+}
+
+.green-color
+{
+    color:green;
+}
+.red-color
+{
+    color:red;
+}
+
+/* graph styling  */
+#myPlot
+{
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+
+.stock-buttons
+{
+    display:flex;
+    gap:2rem;
+    margin: 15px 0;
+}
+
+.stock-buttons button
+{
+    font-size: 1rem;
+    font-weight: 900;
+    width:5rem;
+    height:2rem;
+    border-radius: 5px;
+}
