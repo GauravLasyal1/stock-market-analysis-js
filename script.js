@@ -110,7 +110,6 @@ function generateCoordinatesWithTimestamp(data) {
 }
 
 function plotGraph(xAxisData, yAxisData) {
-  console.log(xAxisData, yAxisData);
   var trace1 = {
     x: xAxisData,
     y: yAxisData,
@@ -122,15 +121,15 @@ function plotGraph(xAxisData, yAxisData) {
   var data = [trace1];
 
   var layout = {
-    title: "Basic Line Graph",
     xaxis: {
-      title: "X Axis Label",
+      showgrid: false, 
     },
     yaxis: {
-      title: "Y Axis Label",
-    }
+      showgrid: false, 
+    },
   };
-  Plotly.newPlot("myPlot", data, layout,{responsize:true});
+    
+  Plotly.newPlot("myPlot", data, layout,{responsize:true,displayModeBar:false});
 }
 
 document.getElementById("one-month").addEventListener("click", () => {
