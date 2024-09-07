@@ -1,3 +1,7 @@
+import { plotGraph } from "./renderPlotly.js";
+
+alert("Please wait. Fetching Data ....");
+
 const stocks = [
   "AAPL",
   "MSFT",
@@ -25,8 +29,8 @@ loadList().then((data) => {
   triggerEvent(); //show microsoft stock for default
 });
 
-function triggerEvent() //show microsoft details for default
-{
+function triggerEvent() {
+  //show microsoft details for default
   document.getElementById(stocks[1]).dispatchEvent(new Event("click"));
 }
 
@@ -109,29 +113,6 @@ function generateCoordinatesWithTimestamp(data) {
   plotGraph(xCoordidates, yCoordinates);
 }
 
-function plotGraph(xAxisData, yAxisData) {
-  var trace1 = {
-    x: xAxisData,
-    y: yAxisData,
-    type: "scatter",
-    mode: "lines+markers",
-    marker: { color: "blue" },
-  };
-
-  var data = [trace1];
-
-  var layout = {
-    xaxis: {
-      showgrid: false, 
-    },
-    yaxis: {
-      showgrid: false, 
-    },
-  };
-    
-  Plotly.newPlot("myPlot", data, layout,{responsize:true,displayModeBar:false});
-}
-
 document.getElementById("one-month").addEventListener("click", () => {
   fetchStockData(currentStock, "1mo");
 });
@@ -147,4 +128,3 @@ document.getElementById("one-year").addEventListener("click", () => {
 document.getElementById("five-year").addEventListener("click", () => {
   fetchStockData(currentStock, "5y");
 });
-
